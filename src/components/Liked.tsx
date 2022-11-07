@@ -1,3 +1,5 @@
 export function Liked() {
-  return <main>you can find the liked videos here</main>;
+  return (
+    <main className="main_container">you can find the liked videos here</main>
+  );
 }

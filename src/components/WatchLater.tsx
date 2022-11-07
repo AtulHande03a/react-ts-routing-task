@@ -1,3 +1,7 @@
 export function WatchLater() {
-  return <main>you can find the watch later videos here</main>;
+  return (
+    <main className="main_container">
+      you can find the watch later videos here
+    </main>
+  );
 }

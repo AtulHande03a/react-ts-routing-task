@@ -22,10 +22,11 @@ export function Login() {
     }
   };
   return (
-    <form onSubmit={loginHandler}>
+    <form className="form_login_container" onSubmit={loginHandler}>
       <div>
         <label htmlFor="username">Username</label>
         <input
+          className="input_login"
           type="text"
           id="username"
           placeholder="test"
@@ -38,6 +39,7 @@ export function Login() {
       <div>
         <label htmlFor="password">Password</label>
         <input
+          className="input_login"
           type="text"
           id="password"
           placeholder="test123"
@@ -47,7 +49,7 @@ export function Login() {
       </div>
 
       <br />
-      <button>Login</button>
+      <button className="btn_auth">Login</button>
     </form>
   );
 }

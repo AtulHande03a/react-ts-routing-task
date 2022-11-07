@@ -78,6 +78,8 @@ a {
   justify-content: center;
   align-items: center;
   border-top: 1px solid #3498db;
+  left: 0;
+  bottom: 0;
 }
 
 .footer-sub-container {

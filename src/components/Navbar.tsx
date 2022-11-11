@@ -8,7 +8,7 @@ export function Navbar() {
     <nav className="navbar_container">
       <Link to="/">Home</Link>
       <Link to="/watchLater">Watch later</Link>
-      <Link to="/liked">Liked</Link>
+      <Link to="/table">Table</Link>
       <Link to="/todolist">TodoList</Link>
       {isLoggedIn ? (
         <button className="btn_auth" onClick={() => setIsLoggedIn(false)}>

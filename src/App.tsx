@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   Navbar,
   Home,
   WatchLater,
-  Liked,
+  Table,
   Login,
   Footer,
 } from "./components/index";
 import { RequiresAuth } from "./RequiresAuth";
 import "./App.css";
-import { Todo } from "./model";
+import { Todo, DataTable, Column } from "./model";
 import Taskify from "./pages/Taskify";
+import axios from "axios";
 
 function App() {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [dataTable, setDataTable] = useState<DataTable[]>([]);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +27,19 @@ function App() {
       setTodo("");
     }
   };
+
+  const column: Column = [
+    { heading: "Name", value: "name" },
+    { heading: "Email", value: "email" },
+    { heading: "Phone", value: "phone" },
+    { heading: "City", value: "address.city" },
+  ];
+
+  useEffect(() => {
+    axios("https://jsonplaceholder.typicode.com/users")
+      .then((res) => setDataTable(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="App">
@@ -40,10 +55,10 @@ function App() {
           }
         />
         <Route
-          path="/liked"
+          path="/table"
           element={
             <RequiresAuth>
-              <Liked />
+              <Table data={dataTable} column={column} />
             </RequiresAuth>
           }
         />
